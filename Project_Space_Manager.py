@@ -16,8 +16,6 @@ def project_manager(action, workspace):
 
 
 def main():
-    if:
-        get_
 
 
 if __name__ == "__main__":
