@@ -3,21 +3,11 @@ from Project import *
 from Workspace import *
 
 
-def project_manager(action, workspace):
-    if (action == “getProjectName”)
+def project_manager(action,workspace,project):
+    if (action == "getProjectName"):
+        return get_name(project)
+    elif (action == "getProjectLayout"):
+        return get_layout(project)
+    elif (action == "getListOfProjects"):
+        return get_list(workspace)
 
-    | | action == “getProjectLayout” | | action == “getListOfProject”)
-    # check if workspace exists
-    try:
-        os.path.isfile(workspace)
-        get_workspace_name(workspace)
-    except OSError:
-        print('DNE')
-
-
-def main():
-
-
-
-if __name__ == "__main__":
-    main()
