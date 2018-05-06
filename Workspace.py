@@ -11,6 +11,7 @@ class Workspace:
     def __init__(self, name, path):
         self.name = name
         self.path = path
+        self.listProjects = []
 
     def get_name(self):
         return self.name
@@ -23,6 +24,13 @@ class Workspace:
 
     def set_path(self, value):
         self.path = value
+
+    def get_list(self):
+        return self.listProjects
+
+    def addProjectToList(self,project):
+        self.listProjects.append(project)
+        self.listProjects.sort()
 
 
 # creates new workspace directory with description
@@ -39,8 +47,6 @@ def new_workspace(name, save_path):
             created_workspace = Workspace(name, save_path)
             c_workspace = created_workspace.get_name()
 
-            # Create text file that holds description
-            os.chdir(save_path + "/" + c_workspace)
         except OSError as e:
             print('Workspace name already exists: Workspace not created.')
 
