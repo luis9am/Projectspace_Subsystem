@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 # Class Project collaborates with GUI and LUA script
 # Displays project name and its specific protocol.
 # Projects can be imported and exported from the workspace
-# @param (name, path, protocol, layout)
+# @param (name, path, protocol, layout, description)
 
 
 class Project:
@@ -61,7 +61,7 @@ def new_project(name, save_path, description):
             new_p = Project(name, save_path, "protocol", "layout", description)
 
             #
-            #   Load new project onto canvas(empty)
+            #   TODO Load new project onto canvas(empty)
             #
 
             # Create text file that holds description
@@ -77,7 +77,7 @@ def new_project(name, save_path, description):
 # Loads existing xml_project
 # @\requires xml_project != null
 # @\ensures saved xml_project is loaded
-def load_project(xml_project):  # untested needs gui
+def load_project(xml_project):  # TODO untested needs gui
     try:
         #   parses xml file
         with open(xml_project, 'r') as f:
@@ -87,7 +87,7 @@ def load_project(xml_project):  # untested needs gui
         # print 'Path:', tree.find('path').text
 
         #
-        #   Load xml Project onto canvas
+        #   TODO Load xml Project onto canvas
         #
 
     except IOError as e:
@@ -97,7 +97,7 @@ def load_project(xml_project):  # untested needs gui
 # save current project and save as XML
 # @\REQUIRES collaboration with layout & protocol to continue
 # @\ensures (new)project state is saved
-def save_project(project):  # untested
+def save_project(project):  # TODO save in class ??
     name = project.get_name()
     path = project.get_path()
     protocol = project.get_protocol()
@@ -122,7 +122,7 @@ def export_lua_dissector(xml_project, save_path):  # not working / take in proje
             dissector_name = tree.find('name').text
 
             #
-            #   Convert dissector_protocol to LUA format
+            #   TODO Convert dissector_protocol to LUA format
             #
 
             lua_dissector = dissector_protocol
@@ -134,7 +134,7 @@ def export_lua_dissector(xml_project, save_path):  # not working / take in proje
                 os.fdopen(fd, 'w')
 
                 #   write lua_dissector to LUA file
-                with open(lua_dissector_name, 'r') as f:        #   can't write to lua file??
+                with open(lua_dissector_name, 'r') as f:  # TODO can't write to lua file??
                     f.write(lua_dissector)
 
             except OSError:
@@ -147,11 +147,6 @@ def export_lua_dissector(xml_project, save_path):  # not working / take in proje
         print('Path not found')
 
 
-#   adds self to workspace
-# def add_to_workspace(project, workspace):  # not complete
-#     print "not started"
-
-
 # verify directory path
 def verify_path(path):
     if os.path.exists(path):
@@ -162,17 +157,17 @@ def main():
     print "\n"
     #   testing
 
-    path1 = r"C:\Users\luui9\Desktop\test"  # annoying path requires char 'r' before string
-    # dis = r"C:\Users\luui9\Desktop\test\new_project555"
+    # path1 = r"C:\Users\*HOMEDIR*\Desktop\test"  # annoying path requires char 'r' before string
+    # dis = r"C:\Users\*HOMEDIR*\Desktop\test\new_project555"
     # new_project("new_project555", path1, "description")
     # new_project = Project("test_project", path1, "protocool", "layout")  # works
 
     # export_lua_dissector(new_project, path1)
     # open_project("test.txt") # untested with projec
     # ts on gui
-    data = "C:\Users\luui9\PycharmProjects\Projectspace_Subsystem\data\pxml_file.xml"
+    # data = r"C:\Users\*HOMEDIR*\PycharmProjects\Projectspace_Subsystem\data\xml_file.xml"
     # load_project(data)
-    export_lua_dissector(data, path1)
+    # export_lua_dissector(data, path1)
 
 if __name__ == "__main__":
     main()
