@@ -162,17 +162,17 @@ def main():
     print "\n"
     #   testing
 
-    path1 = r"C:\Users\luui9\Desktop\test"  # annoying path requires char 'r' before string
-    # dis = r"C:\Users\luui9\Desktop\test\new_project555"
+    # path1 = r"C:\Users\*HOMEDIR*\Desktop\test"  # annoying path requires char 'r' before string
+    # dis = r"C:\Users\*HOMEDIR*\Desktop\test\new_project555"
     # new_project("new_project555", path1, "description")
     # new_project = Project("test_project", path1, "protocool", "layout")  # works
 
     # export_lua_dissector(new_project, path1)
     # open_project("test.txt") # untested with projec
     # ts on gui
-    data = "C:\Users\luui9\PycharmProjects\Projectspace_Subsystem\data\pxml_file.xml"
+    # data = r"C:\Users\*HOMEDIR*\PycharmProjects\Projectspace_Subsystem\data\xml_file.xml"
     # load_project(data)
-    export_lua_dissector(data, path1)
+    # export_lua_dissector(data, path1)
 
 if __name__ == "__main__":
     main()
